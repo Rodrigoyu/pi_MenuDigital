@@ -1,5 +1,5 @@
 function adicionarQuantidade(button) {
-    var caixaDeItem = button.parentNode.parentNode.parentNode;
+    var caixaDeItem = button.closest('.card');
     var quantidadeElemento = caixaDeItem.querySelector('.quantidade_1');
 
     var quantidade = parseInt(quantidadeElemento.innerText);
@@ -10,7 +10,7 @@ function adicionarQuantidade(button) {
 }
 
 function subtrairQuantidade(button) {
-    var caixaDeItem = button.parentNode.parentNode.parentNode;
+    var caixaDeItem = button.closest('.card');
     var quantidadeElemento = caixaDeItem.querySelector('.quantidade_1');
 
     var quantidade = parseInt(quantidadeElemento.innerText);
@@ -23,25 +23,28 @@ function subtrairQuantidade(button) {
 }
 
 function atualizarPreco() {
-    var caixasDeItem = document.getElementsByClassName('caixa_de_item');
+    var caixasDeItem = document.querySelectorAll('.card');
     var precoTotal = 0;
     var quantidadeTotal = 0;
 
-    for (var i = 0; i < caixasDeItem.length; i++) {
-        var caixaDeItem = caixasDeItem[i];
+    caixasDeItem.forEach(function (caixaDeItem) {
         var valorDoPrecoElemento = caixaDeItem.querySelector('.preço_div');
         var quantidadeElemento = caixaDeItem.querySelector('.quantidade_1');
 
-        var preco = parseFloat(valorDoPrecoElemento.innerText);
-        var quantidade = parseInt(quantidadeElemento.innerText);
+        if (valorDoPrecoElemento && quantidadeElemento) {
+            var preco = parseFloat(valorDoPrecoElemento.querySelector('strong').innerText);
+            var quantidade = parseInt(quantidadeElemento.innerText);
 
-        precoTotal += preco * quantidade;
-        quantidadeTotal += quantidade;
-    }
+            precoTotal += preco * quantidade;
+            quantidadeTotal += quantidade;
+        }
+    });
 
     var precoAtualElemento = document.getElementById("preco_atual");
-    var quantidadeElemento = document.getElementById("quantidade_1");
+    var quantidadeElemento = document.getElementById("quantidade_total");
 
-    precoAtualElemento.innerText = precoTotal.toFixed(2);
-    quantidadeElemento.innerText = quantidadeTotal;
+    if (precoAtualElemento && quantidadeElemento) {
+        precoAtualElemento.innerText = precoTotal.toFixed(2);
+        quantidadeElemento.innerText = quantidadeTotal;
+    }
 }
