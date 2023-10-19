@@ -9,7 +9,7 @@
     <!--Fim Do Header-->
 
     <!--Inicio do conteine-->
-    <div class="div_conteine_tabela">
+    <div class="div_conteine_tabela container">
         <div class="div_tabela">
             <table class="table table-striped">
                 <thead>

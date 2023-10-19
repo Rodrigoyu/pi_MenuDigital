@@ -19,19 +19,16 @@ $itemMenu = listarItemMenu();
                             <div class="quantidade_1 mx-2">0</div>
                             <button class="btn btn-outline-info" onclick="adicionarQuantidade(this)">+</button>
                         </div>
+                        <button class="btn btn-primary" onclick="adicionarItem('<?= $item['id'] ?>')">Adicionar Item</button>
                     </div>
                 </div>
             </div>
         <?php endforeach ?>
     </div>
-    
-
-
-
-
-
 </div>
+
 <!-- Seção de valor total e botão de envio -->
+
 <div class="conteine_valor d-flex align-items-center sticky-md-bottom fixed-bottom bg-light py-3">
     <div class="container">
         <div class="row justify-content-between">
@@ -40,7 +37,12 @@ $itemMenu = listarItemMenu();
                 <h4 class="preço_atual" id="preco_atual">00.00</h4>
             </div>
             <div class="col-md-auto">
-                <button class="btn btn-primary" id="enviarPedido" onclick="enviarPedido()">Enviar Pedido</button>
+                <form action="<?=constant("URL_LOCAL_ADM")?>usuario/controladorProcessarPedido.php" method="post">
+                    <!-- Adicione campos ocultos para os itens escolhidos e o valor total -->
+                    <input type="hidden" name="itens_escolhidos" id="itens_escolhidos">
+                    <input type="hidden" name="valor_total" id="valor_total">
+                    <button class="btn btn-primary" type="submit">Enviar Pedido</button>
+                </form>
             </div>
         </div>
     </div>

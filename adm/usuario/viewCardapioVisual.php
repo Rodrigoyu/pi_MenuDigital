@@ -1,72 +1,48 @@
-<!--Inicio Do Header-->
 <?php
 $itemMenu = listarItemMenu();
-
 ?>
-<!--Fim Do Header-->
 
-<div class="div_menu_conteine">
-    <div class="div_menu">
-        <ul>
-            <li><a href="">Bebidas</a></li>
-            <li><a href="">Lanches</a></li>
-            <li><a href="">Café da manhã</a></li>
-            <li><a href="">Almoço</a></li>
-            <li><a href="">Jantar</a></li>
-            <li><a href="">Doce</a></li>
-        </ul>
+<!-- Início do cardápio -->
+<div class="container conteine_Pricipal">
+    <div class="row justify-content-center">
+        <?php foreach ($itemMenu as $item): ?>
+            <div class="caixa_de_item col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top"
+                        src="data:image/jpeg;base64,<?= base64_encode($item['imagem']) ?>"  width="100" height="150" alt="" srcset="">
+                    <div class="informacao_div card-body">
+                        <h5 class="card-title"><?= $item['nome'] ?></h5>
+                        <p class="card-text"><?= $item['descricao'] ?></p>
+                        <p class="card-text">Preço: R$ <span class="preço_div"><?= number_format($item['valor'], 2) ?></span></p>
+                        <div class="btn-group">
+                            <button class="btn btn-outline-info" onclick="subtrairQuantidade(this)">-</button>
+                            <div class="quantidade_1 mx-2">0</div>
+                            <button class="btn btn-outline-info" onclick="adicionarQuantidade(this)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach ?>
     </div>
 </div>
 
-<!--Inicio do cardapio-->
-<section class="conteine_Pricipal">
-    <div class="conteine_pricipal_cardapio">
-        <div class="conteine_cardapio_1">
-            <?php foreach ($itemMenu as $item): ?>
-                <div class="caixa_de_item">
+<!-- Seção de valor total e botão de envio -->
 
-                    <div class="informacao_div">
-                        <div class="titulo_da_caixa">
-                            <?= $item['nome'] ?>
-                        </div>
-                        <div class="descricao_da_caixa">
-                            <?= $item['descricao'] ?>
-                        </div>
-                        <div class="preco_da_caixa">Preço R$<div id="valor_do_preco" class="preço_div">
-                                <?= floatval($item['valor']) ?>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="button_div">
-                        <div class="butao_da_caixa">
-                            <button class="button_cardapio" id="meno_button" onclick="subtrairQuantidade(this)">-</button>
-                            <div class="quantidade_1">0</div><button class="button_cardapio"
-                                id="mais_button" onclick="adicionarQuantidade(this)">+</button>
-
-                        </div>
-                    </div>
-
-                    <div class="img_div">
-                        <img class="img_controle" src="data:image/jpeg;base64,<?= base64_encode($item['imagem']) ?>" alt=""
-                            srcset="">
-                    </div>
-                </div>
-            <?php endforeach ?>
-        </div>
-        <div class="conteine_valor">
-            <div class="caixa_de_valor">
-                valor total R$<div class="preço_atual" id="preco_atual">00.00</div>
-    
+<div class="conteine_valor d-flex align-items-center sticky-md-bottom fixed-bottom bg-light py-3">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-md-auto">
+                <h5 class="mb-0">Valor Total</h5>
+                <h4 class="preço_atual" id="preco_atual">00.00</h4>
             </div>
-            <div class="button_envia_pedidos"><button class="button_cardapio_adiciona" type="submit">Fazer Pedidos</button>
+            <div class="col-md-auto">
+                <form action="<?=constant("URL_LOCAL_ADM")?>usuario/controladorProcessarPedido.php" method="post">
+                    <!-- Adicione campos ocultos para os itens escolhidos e o valor total -->
+                    <input type="hidden" name="itens_escolhidos" id="itens_escolhidos">
+                    <input type="hidden" name="valor_total" id="valor_total">
+                    <button class="btn btn-primary" type="submit">Enviar Pedido</button>
+                </form>
             </div>
         </div>
     </div>
-
-
-    </div>
-</section>
-<!--Fim do cardapio-->
-<footer>
+</div>

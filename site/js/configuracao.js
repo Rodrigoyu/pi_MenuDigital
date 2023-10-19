@@ -48,3 +48,22 @@ function atualizarPreco() {
         quantidadeElemento.innerText = quantidadeTotal;
     }
 }
+
+//envio do intens para array
+
+function adicionarItem(itemId) {
+    var campoItensEscolhidos = document.getElementById("itens_escolhidos");
+
+    // Obtém o valor atual do campo oculto
+    var itensEscolhidos = campoItensEscolhidos.value;
+
+    // Adiciona o ID do item ao campo oculto, separando por vírgula
+    if (itensEscolhidos) {
+        itensEscolhidos += ', ' + itemId;
+    } else {
+        itensEscolhidos = itemId;
+    }
+
+    // Atualiza o campo oculto com os itens escolhidos
+    campoItensEscolhidos.value = itensEscolhidos;
+}
