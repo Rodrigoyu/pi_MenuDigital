@@ -1,39 +1,49 @@
-<?php
-    include_once "../assets/head.php";
-?>
-    <header class="header_edit_cardapio">
-        <nav class="navegação_nav">
-            <div class="menu_edit">
-                <div class="titulo_menu"><h3 class="titulo_h3_menu">Menu Digital</h3></div>
-                <div class="nav_menu">
-                    <a class="a_menu" id="ativo" href="login.php">Login</a>
-                    <a class="a_menu" href="viewCadastra.php">Cadastrar</a>
+<header class="header_edit_cardapio">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container">
+                <a class="navbar-brand text-white" href="#">Menu Digital</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse  " id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" id="ativo" href="login.php">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="viewCadastra.php">Cadastrar</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
     
-<div class="tela_1" >
-    <div class="conteine_login">
-        <div class="titulo_div_login"><h1 class="titulo_login">Login</h1></div>
-        <div class="div_formulario">
-            <form class="form_login" action="">
-                <div class="div_nome"> Email:</div> <input class="input_caixa" type="email" value=""><br>
-                <div class="div_nome"> Senha:</div> <input class="input_caixa" type="password" name="" value=""><br>
-                <br>
-                <input class="button_inp" type="button" name="" value="ENTRAR"><br>
-                <br>   
-            </form>
-        </div>
-        <div class="button_login_div">
-            <a class="a_buttao_login" href="">Esqueci Senha</a>
-            <a class="a_buttao_login" href="viewCadastra.php">Cadastrar</a>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title m-0">Login</h5>
+                    </div>
+                    <div class="card-body">
+                        <form class="form_login" action="<?= constant("URL_LOCAL_ADM")?>" method="post">
+                            <div class="form-group">
+                                <label for="inputEmail">Email:</label>
+                                <input class="form-control" type="email" id="inputEmail" name="email" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword">Senha:</label>
+                                <input class="form-control" type="password" id="inputPassword" name="senha" value="">
+                            </div>
+                            <button class="btn btn-primary" type="submit">ENTRAR</button>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-link" href="">Esqueci Senha</a>
+                        <a class="btn btn-link" href="viewCadastra.php">Cadastrar</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-
-
-<?php
-    include_once "../assets/footer.php";
-?>

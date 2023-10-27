@@ -8,15 +8,19 @@ $itemMenu = listarItemMenu();
         <?php foreach ($itemMenu as $item): ?>
             <div class="caixa_de_item col-md-6 col-lg-4 mb-4">
                 <div class="card">
-                    <img class="card-img-top"
-                        src="data:image/jpeg;base64,<?= base64_encode($item['imagem']) ?>"  width="100" height="150" alt="" srcset="">
+                    <img class="card-img-top" src="data:image/jpeg;base64,<?= base64_encode($item['imagem']) ?>" width="100"
+                        height="150" alt="" srcset="">
                     <div class="informacao_div card-body">
-                        <h5 class="card-title"><?= $item['nome'] ?></h5>
-                        <p class="card-text"><?= $item['descricao'] ?></p>
-                        <p class="card-text">Preço: R$ <span class="preço_div"><?= number_format($item['valor'], 2) ?></span></p>
+                        <h5 class="card-title">
+                            <?= $item['nome'] ?>
+                        </h5>
+                        <p class="card-text">
+                            <?= $item['descricao'] ?>
+                        </p>
+                        <p class="card-text">Preço: R$ <span class="preço_div"><strong><?= $item['valor']?></strong></span></p>
                         <div class="btn-group">
                             <button class="btn btn-outline-info" onclick="subtrairQuantidade(this)">-</button>
-                            <div class="quantidade_1 mx-2">0</div>
+                            <div class="quantidade_1">0</div>
                             <button class="btn btn-outline-info" onclick="adicionarQuantidade(this)">+</button>
                         </div>
                     </div>
@@ -36,7 +40,7 @@ $itemMenu = listarItemMenu();
                 <h4 class="preço_atual" id="preco_atual">00.00</h4>
             </div>
             <div class="col-md-auto">
-                <form action="<?=constant("URL_LOCAL_ADM")?>usuario/controladorProcessarPedido.php" method="post">
+                <form action="<?= constant("URL_LOCAL_ADM") ?>usuario/controladorProcessarPedido.php" method="post">
                     <!-- Adicione campos ocultos para os itens escolhidos e o valor total -->
                     <input type="hidden" name="itens_escolhidos" id="itens_escolhidos">
                     <input type="hidden" name="valor_total" id="valor_total">

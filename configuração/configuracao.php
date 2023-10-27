@@ -1,6 +1,6 @@
 <?php
 
-define("URL_LOCAL_BASE","http://localhost/MenuDigital/");
+define("URL_LOCAL_BASE","http://localhost/pi_menuDigital/");
 define("URL_LOCAL_SITE",constant("URL_LOCAL_BASE")."site/");
 define("URL_LOCAL_ADM",constant("URL_LOCAL_BASE")."adm/");
 
@@ -39,7 +39,7 @@ function inserirItemCardapio($nome, $descricao, $valor, $imagem) {
     }
 }
 
-function listarItemMenu(){
+function listaritemmenu(){
     $pdo = Database::conexao();
     $sql = "SELECT * FROM itemmenu";
     $stmt = $pdo->prepare($sql);

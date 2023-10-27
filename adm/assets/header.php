@@ -18,6 +18,7 @@
                     <li class="nav-item"><a class="a_menu nav-link text-white" id="ativo" href="<?= constant("URL_LOCAL_ADM") . '?pagina=usuario-cardapio' ?>">Visualizar Cardápio</a></li>
                     <li class="nav-item"><a class="a_menu nav-link text-white" href="<?= constant("URL_LOCAL_ADM") . '?pagina=usuario-configuracao' ?>">Configuração</a></li>
                     <li class="nav-item"><a class="a_menu nav-link text-white" href="<?= constant("URL_LOCAL_ADM") . '?pagina=usuario-pedidos' ?>">Pedidos</a></li>
+                    <li class="nav-item"><a class="a_menu nav-link text-white" href="<?= constant("URL_LOCAL_ADM") . '?pagina=usuario-cardapioedit' ?>">Edita Menu</a></li>
                     <li class="nav-item"><a class="a_menu nav-link text-white" href="">Sair</a></li>
                 </ul>
                 </div>

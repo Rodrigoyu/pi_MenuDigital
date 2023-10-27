@@ -24,7 +24,7 @@ class Database
     {
         # Informações sobre o banco de dados:
         $db_host = "localhost";
-        $db_nome = "manudigital";
+        $db_nome = "menu_digital";
         $db_usuario = "root";
         $db_senha = "";
         $db_driver = "mysql";
