@@ -8,10 +8,10 @@
                 <div class="collapse navbar-collapse  " id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-white" id="ativo" href="login.php">Login</a>
+                            <a class="nav-link text-white" id="ativo" href="<?= constant("URL_LOCAL_ADM")?>?pagina=login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="viewCadastra.php">Cadastrar</a>
+                            <a class="nav-link text-white" href="<?= constant("URL_LOCAL_ADM")?>?pagina=cadastror">Cadastrar</a>
                         </li>
                     </ul>
                 </div>
@@ -40,8 +40,8 @@
                         </form>
                     </div>
                     <div class="card-footer">
-                        <a class="btn btn-link" href="">Esqueci Senha</a>
-                        <a class="btn btn-link" href="viewCadastra.php">Cadastrar</a>
+                        <a class="btn btn-link" href="#">Esqueci Senha</a>
+                        <a class="btn btn-link" href="<?= constant("URL_LOCAL_ADM")?>?pagina=cadastror">Cadastrar</a>
                     </div>
                 </div>
             </div>

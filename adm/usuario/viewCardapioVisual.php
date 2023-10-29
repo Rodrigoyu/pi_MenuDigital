@@ -1,7 +1,6 @@
 <?php
 $itemMenu = listarItemMenu();
 ?>
-
 <!-- Início do cardápio -->
 <div class="container conteine_Pricipal">
     <div class="row justify-content-center">
@@ -9,7 +8,7 @@ $itemMenu = listarItemMenu();
             <div class="caixa_de_item col-md-6 col-lg-4 mb-4">
                 <div class="card">
                     <img class="card-img-top" src="data:image/jpeg;base64,<?= base64_encode($item['imagem']) ?>" width="100"
-                        height="150" alt="" srcset="">
+                    height="150" alt="" srcset="">
                     <div class="informacao_div card-body">
                         <h5 class="card-title">
                             <?= $item['nome'] ?>
@@ -26,11 +25,12 @@ $itemMenu = listarItemMenu();
                     </div>
                 </div>
             </div>
-        <?php endforeach ?>
+            <?php endforeach ?>
+        </div>
     </div>
-</div>
-
-<!-- Seção de valor total e botão de envio -->
+    
+    
+    <!-- Seção de valor total e botão de envio -->
 
 <div class="conteine_valor d-flex align-items-center sticky-md-bottom fixed-bottom bg-light py-3">
     <div class="container">
